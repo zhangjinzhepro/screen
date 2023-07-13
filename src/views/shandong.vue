@@ -27,21 +27,21 @@ const initShandong = ()=>{
   chart.setOption({
     geo:{
       map: 'sd',
-      zoom: 1.5,
+      zoom: 2,
       label: {
         show: true
       },
       silent: true,
       roam: true,
       itemStyle:{
-        areaColor: '#b1e8ff'
+        areaColor: '#a6ddff'
       }
     },
     tooltip: {
       trigger: 'item',
-      formatter: function (params) {
-        console.info(params)
-      }
+      formatter: function (param: any,ticket: any, callback: any) {
+        return `${param.name}:  ${param.data.aa} 家`
+      },
     },
     series: [
       {
@@ -50,14 +50,12 @@ const initShandong = ()=>{
         coordinateSystem: 'geo',
         data: [
           // { name: '青岛市', value: [120, 36.05,123123], symbolSize: 50, aa: '122222' },
-          { name: '潍坊市', value: [119.1, 36.62], symbolSize: 20, aa: '4' },
-          { name: '济南市', value: [117.1, 36.62], symbolSize: 23, aa: '5' },
+          { name: '潍坊市', value: [119.1, 36.62], symbolSize: 23, aa: '4' },
+          { name: '济南市', value: [117.1, 36.62], symbolSize: 26, aa: '5' },
         ],
-        tooltip: {
-          trigger: 'item',
-          formatter: function (param,ticket, callback) {
-            return `${param.name}:  ${param.data.aa} 家`
-          },
+        itemStyle: {
+          shadowBlur: 3,
+          // color: '#fac858'
         },
       },
       {
@@ -67,21 +65,13 @@ const initShandong = ()=>{
         data: [
           { name: '青岛市', value: [120, 36.05, 123123], symbolSize: 30, aa: '210' },
         ],
-        tooltip: {
-          show: true,
-          trigger: 'item',
-          formatter: function (param,ticket, callback) {
-            return `${param.name}:  ${param.data.aa} 家`
-          },
-        },
         itemStyle: {
-          shadowBlur: 10,
-          shadowColor: '#333'
+          shadowBlur: 3,
+          color: '#fac858'
         },
       }
     ]
   });
-  chart.setOption(s);
 }
 
 
